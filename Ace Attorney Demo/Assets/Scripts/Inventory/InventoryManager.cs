@@ -22,7 +22,5 @@ public class InventoryManager : MonoBehaviour
             Gender = "Female",
             Image = image
         });
-
-        Debug.Log(Profiles.Peek().Name);
     }
 }
