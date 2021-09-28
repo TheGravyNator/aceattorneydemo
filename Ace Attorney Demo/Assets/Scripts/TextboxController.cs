@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class TextboxController : MonoBehaviour
 {
+    public string Name
+    {
+        get { return nameField.text; }
+        set { nameField.text = value; }
+    }
+    public Text nameField;
     public Text textField;
 
     public bool canWrite = true;
 
-    public void WriteText(string text)
+    public void WriteText(string name, string text)
     {
         textField.text = "";
+        nameField.text = name;
         gameObject.SetActive(true);
         canWrite = false;
         StartCoroutine(WriteTextbox(text));

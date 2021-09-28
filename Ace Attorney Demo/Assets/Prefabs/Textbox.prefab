@@ -132,7 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b95337476b8c34fbd952966692c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameField: {fileID: 0}
   textField: {fileID: 741788050322178679}
+  canWrite: 1
 --- !u!222 &741788051061553052
 CanvasRenderer:
   m_ObjectHideFlags: 0

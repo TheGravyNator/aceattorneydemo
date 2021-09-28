@@ -15,14 +15,20 @@ public class StoryManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         story = new Story(inkFile.text);
-        Debug.Log(story.Continue());
     }
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A) && story.canContinue && textBox.canWrite)
         {
-            textBox.WriteText(story.Continue());
+            var line = GetNextLine();
+            textBox.WriteText(line.name, line.text);
         }
+    }
+
+    private (string name, string text) GetNextLine()
+    {
+        string[] lineAndName = story.Continue().Split(':');
+        return (lineAndName[0], lineAndName[1].TrimStart(' '));
     }
 }
