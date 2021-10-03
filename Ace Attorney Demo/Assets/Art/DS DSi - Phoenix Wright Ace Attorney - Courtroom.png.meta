@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 9222531568771066773
     second: DS DSi - Phoenix Wright Ace Attorney - Courtroom_0
+  - first:
+      213: 6351948503302962780
+    second: DS DSi - Phoenix Wright Ace Attorney - Courtroom_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,7 +129,7 @@ TextureImporter:
         width: 254
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: 59bec6649930dff70800000000000000
       internalID: 9222531568771066773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - Phoenix Wright Ace Attorney - Courtroom_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 23
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e72fa7287a62850800000000000000
+      internalID: 6351948503302962780
       vertices: []
       indices: 
       edges: []

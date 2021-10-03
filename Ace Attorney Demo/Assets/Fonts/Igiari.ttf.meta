@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7d9b5d5cd04c0104b85b8b3ed0169e24
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Igiari
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 63dfefbf40e2033469e7a25666b404d1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
