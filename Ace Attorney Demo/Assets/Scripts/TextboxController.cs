@@ -12,11 +12,14 @@ public class TextboxController : MonoBehaviour
     }
     public Text nameField;
     public Text textField;
+    public GameObject ContinueDotImage;
 
     public bool canWrite = true;
 
     public void WriteText(string name, string text)
     {
+        ContinueDotImage.SetActive(false);
+        ContinueDotImage.GetComponent<Animation>().Stop();
         textField.text = "";
         nameField.text = name;
         gameObject.SetActive(true);
@@ -26,6 +29,7 @@ public class TextboxController : MonoBehaviour
 
     IEnumerator WriteTextbox(string text)
     {
+
         foreach (char letter in text)
         {
             textField.text += letter;
@@ -33,6 +37,8 @@ public class TextboxController : MonoBehaviour
             else yield return new WaitForSeconds(.05f);
         }
         canWrite = true;
+        ContinueDotImage.SetActive(true);
+        ContinueDotImage.GetComponent<Animation>().Play();
         yield return WaitForKeyPress();
     }
 
