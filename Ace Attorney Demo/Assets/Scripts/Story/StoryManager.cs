@@ -10,6 +10,9 @@ public class StoryManager : MonoBehaviour
     public TextAsset inkFile;
 
     public TextboxController textBox;
+    
+    public delegate void DialogueChanged(string name, string emote);
+    public static event DialogueChanged OnDialogueChanged;
 
     void Start()
     {
@@ -23,12 +26,14 @@ public class StoryManager : MonoBehaviour
         {
             var line = GetNextLine();
             textBox.WriteText(line.name, line.text);
+            OnDialogueChanged(line.name, line.tag);
         }
     }
 
-    private (string name, string text) GetNextLine()
+    private (string name, string text, string tag) GetNextLine()
     {
         string[] lineAndName = story.Continue().Split(':');
-        return (lineAndName[0], lineAndName[1].TrimStart(' '));
+        string tag = story.currentTags[0];
+        return (lineAndName[0], lineAndName[1].TrimStart(' '), tag);
     }
 }
