@@ -33,7 +33,7 @@ public class TextboxController : MonoBehaviour
         foreach (char letter in text)
         {
             textField.text += letter;
-            if(Input.GetButton("Jump")) yield return new WaitForSeconds(.01f);
+            if(Input.GetKey(KeyCode.LeftShift) || Input.GetMouseButton(0)) yield return new WaitForSeconds(.01f);
             else yield return new WaitForSeconds(.05f);
         }
         canWrite = true;
@@ -47,7 +47,7 @@ public class TextboxController : MonoBehaviour
         bool done = false;
         while (!done)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(0))
             {
                 done = true;
             }

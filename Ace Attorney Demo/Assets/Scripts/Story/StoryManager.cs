@@ -10,6 +10,8 @@ public class StoryManager : MonoBehaviour
     public TextAsset inkFile;
 
     public TextboxController textBox;
+
+    public InventoryManager inventory;
     
     public delegate void DialogueChanged(string name, string emote);
     public static event DialogueChanged OnDialogueChanged;
@@ -22,7 +24,7 @@ public class StoryManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && story.canContinue && textBox.canWrite)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && story.canContinue && textBox.canWrite && !inventory.isMenuActive)
         {
             var line = GetNextLine();
             textBox.WriteText(line.name, line.text);

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9de003a74e54e448576d6f9a0d5e7e, type: 3}
+  m_Name: Maya Fey
+  m_EditorClassIdentifier: 
+  Name: Maya Fey
+  Description: My assistant and a disciple in the Kurain tradition of spirit channeling.
+  Image: {fileID: 21300000, guid: 8baab01f2c0c3044e8b972e2d8276d3b, type: 3}
+  Age: 18
+  Gender: Female

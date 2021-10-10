@@ -8,7 +8,6 @@ public class Location
     public string Name { get; set; }
     public Image Image { get; set; }
     public bool isVisited { get; set; }
-    public StoryEvent StoryEvent { get; set; }
     public Location[] ConnectedLocations { get; set; }
 
     public Location()

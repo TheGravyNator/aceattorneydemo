@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Clue
+[Serializable]
+public class Clue : ScriptableObject
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public Sprite Image { get; set; }
+    [Header("General Data")]
+    public string Name;
+    public string Description;
+    public Sprite Image;
 }
