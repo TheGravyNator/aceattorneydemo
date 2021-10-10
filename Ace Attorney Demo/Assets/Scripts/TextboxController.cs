@@ -15,6 +15,7 @@ public class TextboxController : MonoBehaviour
     public GameObject ContinueDotImage;
 
     public bool canWrite = true;
+    public bool writeTitle = false;
 
     public void WriteText(string name, string text)
     {
@@ -24,19 +25,32 @@ public class TextboxController : MonoBehaviour
         nameField.text = name;
         gameObject.SetActive(true);
         canWrite = false;
-        StartCoroutine(WriteTextbox(text));
+        StartCoroutine(WriteTextbox(text, false));
     }
 
-    IEnumerator WriteTextbox(string text)
+    public void WriteTitle(string text)
+    {
+        writeTitle = true;
+        ContinueDotImage.SetActive(false);
+        ContinueDotImage.GetComponent<Animation>().Stop();
+        textField.text = "";
+        gameObject.SetActive(true);
+        canWrite = false;
+        StartCoroutine(WriteTextbox(text, true));
+    }
+
+    IEnumerator WriteTextbox(string text, bool isTitle)
     {
 
         foreach (char letter in text)
         {
             textField.text += letter;
-            if(Input.GetKey(KeyCode.LeftShift) || Input.GetMouseButton(0)) yield return new WaitForSeconds(.01f);
+            if(Input.GetKey(KeyCode.LeftShift)) yield return new WaitForSeconds(.01f);
             else yield return new WaitForSeconds(.05f);
         }
         canWrite = true;
+        if (isTitle)
+            writeTitle = false;
         ContinueDotImage.SetActive(true);
         ContinueDotImage.GetComponent<Animation>().Play();
         yield return WaitForKeyPress();
@@ -47,7 +61,7 @@ public class TextboxController : MonoBehaviour
         bool done = false;
         while (!done)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 done = true;
             }

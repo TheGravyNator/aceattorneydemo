@@ -24,8 +24,10 @@ public class SpriteManager : MonoBehaviour
     {
         Character character = GetCharacter(name);
 
-        CharacterImage.sprite = GetCharacterSprite(character, emote);
-        BackgroundImage.sprite = GetBackground(character);
+        if(CharacterImage != null)
+            CharacterImage.sprite = GetCharacterSprite(character, emote);
+        if (BackgroundImage != null)
+            BackgroundImage.sprite = GetBackground(character);
     }
 
     private Character GetCharacter(string name)

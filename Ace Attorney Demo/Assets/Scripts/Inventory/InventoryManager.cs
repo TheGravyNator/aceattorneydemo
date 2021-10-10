@@ -1,3 +1,4 @@
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ public class InventoryManager : MonoBehaviour
 
     private Clue selected;
 
+    public StoryManager storyManager;
+
     void Start()
     {
         Items = new List<Clue>();
@@ -50,14 +53,37 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (!InventoryUI.activeSelf)
+                ToggleInventory(true, false);
+            else
+                ToggleInventory(false, false);
+        }
+    }
+
+    public void OnCourtRecordButton()
+    {
+        if (isMenuActive)
+            ToggleInventory(false, false);
+        else
+            ToggleInventory(true, false);
+    }
+
+
+    public void ToggleInventory(bool enabled, bool fastHide)
+    {
+        isMenuActive = enabled;
+        if (enabled)
+        {
+            InventoryUI.SetActive(enabled);
+            InventoryUI.GetComponent<Animation>().Play("Slide In");
+        }
+        else
+        {
+            if (fastHide)
             {
-                isMenuActive = true;
-                InventoryUI.SetActive(true);
-                InventoryUI.GetComponent<Animation>().Play("Slide In");
+                InventoryUI.SetActive(false);
             }
             else
             {
-                isMenuActive = false;
                 InventoryUI.GetComponent<Animation>().Play("Slide Out");
                 StartCoroutine(DisableUI(InventoryUI.GetComponent<Animation>().GetClip("Slide Out").length));
             }
@@ -69,7 +95,7 @@ public class InventoryManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         InventoryUI.SetActive(false);
     }
-
+    
     public void AddClueToCourtRecord(Clue item)
     {
         if (item.GetType() == typeof(Evidence))
@@ -78,6 +104,7 @@ public class InventoryManager : MonoBehaviour
         }
         else if(item.GetType() == typeof(Profile))
         {
+            //TODO: Implement Profiles
         }
     }
 
@@ -104,7 +131,7 @@ public class InventoryManager : MonoBehaviour
 
     private void SetDetailsInUI(Clue item)
     {
-        InventoryUITitle.text = item.name;
+        InventoryUITitle.text = item.Name;
 
         var setColor = InventoryUIImage.color;
         setColor.a = 1f;
@@ -119,6 +146,8 @@ public class InventoryManager : MonoBehaviour
 
     public void PresentItem()
     {
-        Debug.Log($"Present: { selected.name }");
+        ToggleInventory(false, true);
+        Camera.main.GetComponent<AudioSource>().Stop();
+        storyManager.PresentEvidence(selected);
     }
 }

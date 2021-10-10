@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e878cc35e862a4bb5d45d899bcd706, type: 3}
   m_Name: Phone
   m_EditorClassIdentifier: 
-  Name: Phone
-  Description: A pink phone, belonging to Maya Fey.
+  Name: Pink Phone
+  Description: A girly-looking phone, belonging to Maya Fey.
   Image: {fileID: 21300000, guid: ff0e9a40cf72ad14882e9677eb38d785, type: 3}
