@@ -35,8 +35,6 @@ public class StoryManager : MonoBehaviour
     public delegate void DialogueChanged(string name, string emote);
     public static event DialogueChanged OnDialogueChanged;
 
-    public static event EventHandler OnPlayClueSound;
-
     private bool title = true;
     private string evidence;
 
