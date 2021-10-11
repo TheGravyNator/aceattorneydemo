@@ -147,7 +147,6 @@ public class InventoryManager : MonoBehaviour
     public void PresentItem()
     {
         ToggleInventory(false, true);
-        Camera.main.GetComponent<AudioSource>().Stop();
         storyManager.PresentEvidence(selected);
     }
 }

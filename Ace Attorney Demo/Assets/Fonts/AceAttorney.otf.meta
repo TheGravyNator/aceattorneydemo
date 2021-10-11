@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d9255fcd7c7e2a846849d888677408d3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Ace Attorney Objection
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5733dc0b0d9a06346883e3bf7a6f16e2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

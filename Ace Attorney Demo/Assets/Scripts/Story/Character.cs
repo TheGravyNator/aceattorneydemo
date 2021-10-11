@@ -9,4 +9,5 @@ public struct Character
     public string name;
     public CharacterType type;
     public Sprite[] sprites;
+    public AudioClip voice;
 }

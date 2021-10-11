@@ -14,6 +14,8 @@ public class TextboxController : MonoBehaviour
     public Text textField;
     public GameObject ContinueDotImage;
 
+    public AudioSource sfx;
+
     public bool canWrite = true;
     public bool writeTitle = false;
 
@@ -45,6 +47,8 @@ public class TextboxController : MonoBehaviour
         foreach (char letter in text)
         {
             textField.text += letter;
+            if(!sfx.isPlaying)
+                sfx.PlayOneShot(sfx.clip);
             if(Input.GetKey(KeyCode.LeftShift)) yield return new WaitForSeconds(.01f);
             else yield return new WaitForSeconds(.05f);
         }

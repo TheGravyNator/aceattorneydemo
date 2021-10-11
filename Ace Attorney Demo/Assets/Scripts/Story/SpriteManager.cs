@@ -15,6 +15,8 @@ public class SpriteManager : MonoBehaviour
     public Image CharacterImage;
     public Image BackgroundImage;
 
+    public AudioSource sfx;
+
     private void Start()
     {
         StoryManager.OnDialogueChanged += DialogueChanged;
@@ -23,6 +25,7 @@ public class SpriteManager : MonoBehaviour
     private void DialogueChanged(string name, string emote)
     {
         Character character = GetCharacter(name);
+        sfx.clip = character.voice;
 
         if(CharacterImage != null)
             CharacterImage.sprite = GetCharacterSprite(character, emote);

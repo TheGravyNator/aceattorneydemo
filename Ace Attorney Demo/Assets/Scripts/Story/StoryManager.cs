@@ -18,6 +18,8 @@ public class StoryManager : MonoBehaviour
 
     public Image FadeScreen;
 
+    public MusicManager music;
+
     public InventoryManager inventory;
     
     public delegate void DialogueChanged(string name, string emote);
@@ -39,7 +41,7 @@ public class StoryManager : MonoBehaviour
     {
         if (!CrossExaminationTextBox.writeTitle)
         {
-            title = false;
+            StartTestimony();
         }
         if (Input.GetKeyDown(KeyCode.Space) && textBox.canWrite && !inventory.isMenuActive && !title)
         {
@@ -75,6 +77,15 @@ public class StoryManager : MonoBehaviour
         CrossExaminationTextBox.WriteTitle(title);
     }
 
+    private void StartTestimony()
+    {
+        if (title)
+        {
+            title = false;
+            music.PlayTrial();
+        }
+    }
+
     public void AdvanceDialogue()
     {
         CrossExaminationUI.SetActive(false);
@@ -104,7 +115,7 @@ public class StoryManager : MonoBehaviour
 
     public void PressStatement()
     {
-        if (choices != null && choices.Count == 3)
+        if (choices != null && choices.Count >= 3)
         {
             MakeChoice((int)ChoiceSelection.Press);
             AdvanceDialogue();
@@ -115,6 +126,7 @@ public class StoryManager : MonoBehaviour
     {
         if (choices.Count == 4 && item.name == evidence)
         {
+            music.PlayCornered();
             MakeChoice((int)ChoiceSelection.PresentRight);
             AdvanceDialogue();
         }
