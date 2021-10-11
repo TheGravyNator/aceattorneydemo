@@ -1,4 +1,5 @@
 using Ink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,10 +21,21 @@ public class StoryManager : MonoBehaviour
 
     public MusicManager music;
 
+    public AudioSource sfx;
+    public AudioSource exclamationSfx;
+
+    public AudioClip ObjectionSfx;
+    public AudioClip HoldItSfx;
+
+    public GameObject ObjectionUI;
+    public GameObject HoldItUI;
+
     public InventoryManager inventory;
     
     public delegate void DialogueChanged(string name, string emote);
     public static event DialogueChanged OnDialogueChanged;
+
+    public static event EventHandler OnPlayClueSound;
 
     private bool title = true;
     private string evidence;
@@ -107,8 +119,13 @@ public class StoryManager : MonoBehaviour
         string[] lineAndName = story.Continue().Split(':');
         string[] tags = story.currentTags[0].Split(' ');
         choices = story.currentChoices;
-        if (tags.Length > 1 && tags[1] == "CrossExamine")
-            textBox.textField.color = Color.green;
+        if (tags.Length > 1)
+        {
+            if (tags[1] == "CrossExamine")
+                textBox.textField.color = Color.green;
+            else if (tags[1] == "clue")
+                sfx.Play();
+        }
         string tag = tags[0];
         return (lineAndName[0], lineAndName[1].TrimStart(' '), tag);
     }
@@ -117,8 +134,7 @@ public class StoryManager : MonoBehaviour
     {
         if (choices != null && choices.Count >= 3)
         {
-            MakeChoice((int)ChoiceSelection.Press);
-            AdvanceDialogue();
+            StartCoroutine(HoldIt());
         }
     }
 
@@ -126,15 +142,45 @@ public class StoryManager : MonoBehaviour
     {
         if (choices.Count == 4 && item.name == evidence)
         {
-            music.PlayCornered();
-            MakeChoice((int)ChoiceSelection.PresentRight);
-            AdvanceDialogue();
+            music.Stop();
+            StartCoroutine(Objection());
         }
         else
         {
             MakeChoice((int)ChoiceSelection.PresentWrong);
             AdvanceDialogue();
         }
+    }
+
+    IEnumerator Objection()
+    {
+        exclamationSfx.PlayOneShot(ObjectionSfx);
+        ObjectionUI.SetActive(true);
+        ObjectionUI.GetComponent<Animation>().Play();
+        while (ObjectionUI.GetComponent<Animation>().isPlaying)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        music.PlayCornered();
+        ObjectionUI.SetActive(false);
+
+        MakeChoice((int)ChoiceSelection.PresentRight);
+        AdvanceDialogue();
+    }
+
+    IEnumerator HoldIt()
+    {
+        exclamationSfx.PlayOneShot(HoldItSfx);
+        HoldItUI.SetActive(true);
+        HoldItUI.GetComponent<Animation>().Play();
+        while (HoldItUI.GetComponent<Animation>().isPlaying)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        HoldItUI.SetActive(false);
+
+        MakeChoice((int)ChoiceSelection.Press);
+        AdvanceDialogue();
     }
 }
 

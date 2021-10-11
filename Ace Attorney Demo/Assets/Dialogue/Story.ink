@@ -67,7 +67,7 @@ Phoenix: I guess that wasn't the right choice.
 -> previousKnot
 
 === RightEvidence ===
-# slam
+# pose
 Phoenix: Hold it one second!
 # pose
 Phoenix: Are you sure about that, Maya?
@@ -121,6 +121,6 @@ Maya: I am completely sure!
 Franziska: There is no way you can squirm yourself out of this one, Phoenix Wright!
 # shocked
 Phoenix: Did she need to use the word squirm...?
-# thinking
+# thinking clue
 Phoenix: Hmm, but that's weird. Didn't I see something in the Court Record that contradicts that statement?
 -> CrossExaminationEnd

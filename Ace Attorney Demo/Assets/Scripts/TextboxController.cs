@@ -53,8 +53,11 @@ public class TextboxController : MonoBehaviour
             else yield return new WaitForSeconds(.05f);
         }
         canWrite = true;
+        if (sfx.isPlaying)
+            sfx.Stop();
         if (isTitle)
             writeTitle = false;
+        sfx.clip = null;
         ContinueDotImage.SetActive(true);
         ContinueDotImage.GetComponent<Animation>().Play();
         yield return WaitForKeyPress();

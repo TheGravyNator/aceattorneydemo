@@ -29,4 +29,9 @@ public class MusicManager : MonoBehaviour
         audioSource.clip = Cornered;
         audioSource.Play();
     }
+
+    public void Stop()
+    {
+        audioSource.Stop();
+    }
 }

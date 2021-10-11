@@ -25,7 +25,8 @@ public class SpriteManager : MonoBehaviour
     private void DialogueChanged(string name, string emote)
     {
         Character character = GetCharacter(name);
-        sfx.clip = character.voice;
+        if(sfx != null)
+            sfx.clip = character.voice;
 
         if(CharacterImage != null)
             CharacterImage.sprite = GetCharacterSprite(character, emote);
