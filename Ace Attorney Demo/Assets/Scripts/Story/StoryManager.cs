@@ -143,16 +143,15 @@ public class StoryManager : MonoBehaviour
         if (choices.Count == 4 && item.name == evidence)
         {
             music.Stop();
-            StartCoroutine(Objection());
+            StartCoroutine(Objection(true));
         }
         else
         {
-            MakeChoice((int)ChoiceSelection.PresentWrong);
-            AdvanceDialogue();
+            StartCoroutine(Objection(false));
         }
     }
 
-    IEnumerator Objection()
+    IEnumerator Objection(bool right)
     {
         exclamationSfx.PlayOneShot(ObjectionSfx);
         ObjectionUI.SetActive(true);
@@ -161,10 +160,14 @@ public class StoryManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-        music.PlayCornered();
+        if (right)
+        {
+            music.PlayCornered();
+            MakeChoice((int)ChoiceSelection.PresentRight);
+        }
+        else
+            MakeChoice((int)ChoiceSelection.PresentWrong);
         ObjectionUI.SetActive(false);
-
-        MakeChoice((int)ChoiceSelection.PresentRight);
         AdvanceDialogue();
     }
 

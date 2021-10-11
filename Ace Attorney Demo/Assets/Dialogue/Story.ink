@@ -1,7 +1,7 @@
 VAR previousKnot = -> Snack
 
 # Plate
-"The unwashed dishes."
+"The unwashed dishes"
 -> Snack
 
 === Snack ===
@@ -75,6 +75,26 @@ Phoenix: Are you sure about that, Maya?
 Maya: W-what?
 # shocked
 Franziska: W-what are you insinuating, Phoenix Wright?
+# pose
+Phoenix: It's obvious!
+# neutral
+Phoenix: Right here, I have a dirty plate.
+# shocked
+Maya: Nick, why did you bring your dirty dishes to work?
+# pose
+Franziska: This is very unprofessional behaviour, Phoenix Wright.
+# shocked
+Phoenix: These are not mine, this is evidence.
+# neutral 
+Phoenix: This plate was found dirty on the kitchen table... 
+# pose
+Phoenix: Not clean in the cupboard!
+# shocked
+Franziska: No! How could you poke a hole in my perfect case!
+# pose
+Phoenix: Sorry Maya, but you're doing the dishes tonight! 
+# shocked
+Maya: NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!
 -> END
 
 === PressSnack ===
@@ -98,7 +118,7 @@ Maya: Well, it was somewhere after 8, because Steel Samurai had already ended.
 # neutral
 Franziska: Clearly this has no importance to the case.
 # shocked
-Phoenix: Why do you get to decide that...
+Phoenix: Why do you just decide that...
 -> Remembered
 
 === PressRemembered ===
