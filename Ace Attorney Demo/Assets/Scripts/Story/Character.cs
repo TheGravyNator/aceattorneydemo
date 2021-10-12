@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct Character
+[CreateAssetMenu(fileName = "New Character", menuName = "Characters/New Character")]
+public class Character : ScriptableObject
 {
-    public string name;
+    public string firstName;
+    public string lastName;
     public CharacterType type;
     public Sprite[] sprites;
     public AudioClip voice;

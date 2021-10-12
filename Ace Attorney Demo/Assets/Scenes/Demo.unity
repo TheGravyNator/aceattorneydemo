@@ -4670,7 +4670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Profiles:
-  - {fileID: 11400000, guid: 578d4103bfebc9a4bbe00dc77c8052cc, type: 2}
+  - {fileID: 0}
   Evidence:
   - {fileID: 11400000, guid: 1d480202dc95e5b4b9f8b285f4c503b7, type: 2}
   - {fileID: 11400000, guid: a7a2df0708d944c45811dc69118aa895, type: 2}
@@ -4740,33 +4740,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1403d9f474f660e46894932806b8b7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prosecution:
-    name: Franziska
-    type: 0
-    sprites:
-    - {fileID: 6887843596355630958, guid: f3daefac52a312747b60bd33f90d666c, type: 3}
-    - {fileID: -2504640577759990190, guid: f3daefac52a312747b60bd33f90d666c, type: 3}
-    - {fileID: 2511952427698947757, guid: f3daefac52a312747b60bd33f90d666c, type: 3}
-    - {fileID: 6928198201048576803, guid: f3daefac52a312747b60bd33f90d666c, type: 3}
-    voice: {fileID: 8300000, guid: 5d40f46357a08f04d970f465a8baf2f2, type: 3}
-  Defense:
-    name: Phoenix
-    type: 1
-    sprites:
-    - {fileID: -2554913593723263831, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
-    - {fileID: 2709242892945654914, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
-    - {fileID: -3203648102257179148, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
-    - {fileID: -7137383548675325358, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
-    voice: {fileID: 8300000, guid: 0c613c616e0c882428dbd519819106a8, type: 3}
-  Witness:
-    name: Maya
-    type: 2
-    sprites:
-    - {fileID: 1141623309342657291, guid: be4be17b1a842be489aa553e6817d9fd, type: 3}
-    - {fileID: 69856169903630337, guid: be4be17b1a842be489aa553e6817d9fd, type: 3}
-    - {fileID: 2766850669025317378, guid: be4be17b1a842be489aa553e6817d9fd, type: 3}
-    - {fileID: 6366476768396970918, guid: be4be17b1a842be489aa553e6817d9fd, type: 3}
-    voice: {fileID: 8300000, guid: 5d40f46357a08f04d970f465a8baf2f2, type: 3}
+  Characters:
+  - {fileID: 11400000, guid: e2cbfeba06eddbd4b8feb3630860c4c1, type: 2}
+  - {fileID: 11400000, guid: ea37aaece700f06409fc0821df389b1e, type: 2}
+  - {fileID: 11400000, guid: e2fba373c8163394f95417fa2c752c31, type: 2}
   Backgrounds:
   - {fileID: 6172491537803308644, guid: e5cfe4277a8bd4040abd9157d75b122e, type: 3}
   - {fileID: 2583609812203033409, guid: e5cfe4277a8bd4040abd9157d75b122e, type: 3}
@@ -4774,6 +4751,15 @@ MonoBehaviour:
   CharacterImage: {fileID: 1322877348}
   BackgroundImage: {fileID: 1760448566}
   sfx: {fileID: 1999090344}
+  Emotes:
+  - emoteName: neutral
+    emoteIndex: 0
+  - emoteName: shocked
+    emoteIndex: 1
+  - emoteName: thinking
+    emoteIndex: 2
+  - emoteName: pose
+    emoteIndex: 3
 --- !u!114 &1999090343
 MonoBehaviour:
   m_ObjectHideFlags: 0

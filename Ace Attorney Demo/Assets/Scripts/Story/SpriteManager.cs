@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpriteManager : MonoBehaviour
 {
-    public Character Prosecution;
-    public Character Defense;
-    public Character Witness;
+    public List<Character> Characters;
 
     public Sprite[] Backgrounds;
 
@@ -16,6 +13,8 @@ public class SpriteManager : MonoBehaviour
     public Image BackgroundImage;
 
     public AudioSource sfx;
+
+    public List<EmoteStruct> Emotes;
 
     private void Start()
     {
@@ -36,55 +35,14 @@ public class SpriteManager : MonoBehaviour
 
     private Character GetCharacter(string name)
     {
-        if (name == "Franziska")
-            return Prosecution;
-        else if (name == "Phoenix")
-            return Defense;
-        else if (name == "Maya")
-            return Witness;
-        else throw new NoValidCharacterException();
-        
+        Character character = Characters.Find(c => c.firstName == name);
+        return character != null ? character : throw new NoValidCharacterException();
     }
 
     private Sprite GetCharacterSprite(Character character, string emote)
     {
-        if (character.name == "Franziska")
-        {
-            if (emote == "neutral")
-                return Prosecution.sprites[(int)SpriteIndex.NEUTRAL];
-            else if (emote == "shocked")
-                return Prosecution.sprites[(int)SpriteIndex.SHOCKED];
-            else if (emote == "thinking")
-                return Prosecution.sprites[(int)SpriteIndex.THINKING];
-            else if (emote == "pose")
-                return Prosecution.sprites[(int)SpriteIndex.POSE];
-            else return null;
-        }
-        else if (character.name == "Phoenix")
-        {
-            if (emote == "neutral")
-                return Defense.sprites[(int)SpriteIndex.NEUTRAL];
-            else if (emote == "shocked")
-                return Defense.sprites[(int)SpriteIndex.SHOCKED];
-            else if (emote == "thinking")
-                return Defense.sprites[(int)SpriteIndex.THINKING];
-            else if (emote == "pose")
-                return Defense.sprites[(int)SpriteIndex.POSE];
-            else return null;
-        }
-        else if (character.name == "Maya")
-        {
-            if (emote == "neutral")
-                return Witness.sprites[(int)SpriteIndex.NEUTRAL];
-            else if (emote == "shocked")
-                return Witness.sprites[(int)SpriteIndex.SHOCKED];
-            else if (emote == "thinking")
-                return Witness.sprites[(int)SpriteIndex.THINKING];
-            else if (emote == "pose")
-                return Witness.sprites[(int)SpriteIndex.POSE];
-            else return null;
-        }
-        else return null;
+        SpriteIndex index = Emotes.Find(e => e.emoteName == emote).emoteIndex;
+        return character.sprites[(int)index];
     }
 
     private Sprite GetBackground(Character character)
@@ -94,3 +52,10 @@ public class SpriteManager : MonoBehaviour
 }
 
 public class NoValidCharacterException : Exception { }
+
+[Serializable]
+public struct EmoteStruct
+{
+    public string emoteName;
+    public SpriteIndex emoteIndex;
+}

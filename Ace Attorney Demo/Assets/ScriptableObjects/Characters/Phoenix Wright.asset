@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4de6e238aa45a469df10a096e01c45, type: 3}
+  m_Name: Phoenix Wright
+  m_EditorClassIdentifier: 
+  firstName: Phoenix
+  lastName: Wright
+  type: 1
+  sprites:
+  - {fileID: -2554913593723263831, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
+  - {fileID: 2709242892945654914, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
+  - {fileID: -3203648102257179148, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
+  - {fileID: -7137383548675325358, guid: ac03513d2634fb3438a2ad06049d508b, type: 3}
+  voice: {fileID: 8300000, guid: 0c613c616e0c882428dbd519819106a8, type: 3}
