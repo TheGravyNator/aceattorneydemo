@@ -64,7 +64,7 @@ public class StoryManager : MonoBehaviour
             StartTestimony();
         }
         
-        // What's going on with all these bools? Can I handle this better?
+        // What's going on with all these bools? Can I handle this better? Also maybe move input to InputManager
         if (Input.GetKeyDown(KeyCode.Space) && textBox.canWrite && !inventory.isMenuActive && !title)
         {
             if (choices != null && choices.Count >= 3)
