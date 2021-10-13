@@ -10,30 +10,37 @@ public class InventoryManager : MonoBehaviour
     public List<Profile> Profiles;
     public List<Evidence> Evidence;
 
+    // Move to InventoryUIHandler
     public GameObject InventoryUI;
     public GameObject InventoryUIItems;
-
+    
+    // Move to InventoryUIHandler
     public Text InventoryUITitle;
     public Image InventoryUIImage;
     public Text InventoryUIDescription;
 
+    // Move to InventoryUIHandler
     public Button PresentButton;
 
+    // Move to InventoryUIHandler
     public List<Button> ItemFrames;
     public List<Image> ItemImages;
 
     private List<Clue> Items;
-
+    
+    // Move to InventoryUIHandler
     public bool isMenuActive = false;
 
     private Clue selected;
 
+    // See if this can be done through events
     public StoryManager storyManager;
 
     void Start()
     {
         Items = new List<Clue>();
-
+        
+        // Move to InventoryUIHandler
         foreach (Transform child in InventoryUIItems.transform)
         {
             ItemFrames.Add(child.GetComponentsInChildren<Button>()[0]);
@@ -50,6 +57,7 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
+        // Maybe move to InputManager
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (!InventoryUI.activeSelf)
@@ -59,6 +67,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Consider wether to make a C# event or use button click event directly
     public void OnCourtRecordButton()
     {
         if (isMenuActive)
@@ -67,7 +76,7 @@ public class InventoryManager : MonoBehaviour
             ToggleInventory(true, false);
     }
 
-
+    // Move to InventoryUIHandler
     public void ToggleInventory(bool enabled, bool fastHide)
     {
         isMenuActive = enabled;
@@ -90,6 +99,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Move to InventoryUIHandler
     IEnumerator DisableUI(float time)
     {
         yield return new WaitForSeconds(time);
@@ -108,6 +118,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // Move to InventoryUIHandler
     private void SetClueInUI(Clue item)
     {
         Items.Add(item);
@@ -129,6 +140,7 @@ public class InventoryManager : MonoBehaviour
         SetDetailsInUI(selected);
     }
 
+    // Move to InventoryUIHandler
     private void SetDetailsInUI(Clue item)
     {
         InventoryUITitle.text = item.Name;
@@ -144,6 +156,7 @@ public class InventoryManager : MonoBehaviour
         PresentButton.gameObject.SetActive(true);
     }
 
+    // Consider wether to make a C# event or use button click event directly
     public void PresentItem()
     {
         ToggleInventory(false, true);
